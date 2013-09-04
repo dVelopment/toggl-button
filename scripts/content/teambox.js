@@ -21,18 +21,28 @@
     return link;
   }
 
+  // finds the project's name either directly on the task's details
+  // or in navigation bar on top
+  function findProjectName(task) {
+    // is the project's name in task header?
+    var projectNameHolder = task.querySelector('.taskHeader .project a');
+    if (projectNameHolder) {
+      return projectNameHolder.innerText.toLowerCase();
+    } else {
+      return '';
+    }
+  }
+
   function addButton(e) {
     if (e.target.className === "comments" || iframeRegex.test(e.target.name)) {
       var task = e.target.parentNode.parentNode.parentNode,
           nameHolder = task.querySelector('.name_holder .name'),
           title = nameHolder.innerHTML,
-          project = nameHolder.parentNode.parentNode.querySelector('.extended .project a'),
-          projectName;
+          projectName = findProjectName(task);
 
       var projectSelect = createProjectSelect(userData, "toggl-select teambox");
 
-      if (project) {
-        projectName = project.innerText.toLowerCase();
+      if (projectName) {
         var options = projectSelect.options;
 
         for (var i = 0; i < options.length; i++) {
