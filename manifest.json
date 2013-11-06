@@ -24,6 +24,7 @@
     "*://*.teambox.com/*",
     "*://jira.gettylist.com/*",
     "*://jira.velopment.at/*",
+    "*://jira.adressom.at/*",
     "*://jira.nnpro.at/*"
   ],
   "icons" : {
@@ -43,6 +44,7 @@
         "*://*.teambox.com/*",
           "*://jira.gettylist.com/*",
           "*://jira.nnpro.at/*",
+          "*://jira.adressom.at/*",
           "*://jira.velopment.at/*"
       ],
       "css": ["styles/style.css"],
@@ -86,6 +88,10 @@
     },
     {
       "matches": ["*://jira.velopment.at/*"],
+      "js": ["scripts/content/greenhopper.js"]
+    },
+    {
+      "matches": ["*://jira.adressom.at/*"],
       "js": ["scripts/content/greenhopper.js"]
     }
   ]
